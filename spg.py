@@ -18,7 +18,7 @@ print("\n")
 print("Hello! This is a psw generator\n")
 
 
-print("How many elements? The minimum reccomended is 6.")
+print("How many words? The minimum reccomended is 6.")
 ele = int(input("> "))
 
 psw = generator(filename, ele)
