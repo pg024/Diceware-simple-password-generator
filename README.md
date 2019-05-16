@@ -1,6 +1,6 @@
 # Diceware-simple-password-generator
 
-Simple Python diceware password generator. 
+Simple diceware password generator, written in python. 
 
 ## Usage
 
