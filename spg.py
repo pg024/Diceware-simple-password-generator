@@ -2,13 +2,13 @@ from sys import argv
 import random
 import linecache
 
+#receives the wordlist as argument
 script, filename = argv
 
 
-
+#the function takes an empty list, randomly chooses 'ele' words from the wordlist
 def generator(filename, ele, lines):
 	psw = []
-	#lines = open(filename, 'rU').readlines()
 	for i in range(0, ele):
 		seed = random.randint(1, lines)
 		word = linecache.getline(filename, seed).rstrip('\n')
@@ -23,9 +23,13 @@ print("Hello! This is a psw generator\n")
 print("How many elements? The minimum reccomended is 6.")
 ele = int(input("> "))
 
+#counting filename's lines
 with open(filename) as foo:
     lines = len(foo.readlines())
+
+#generating passphrase function
 psw = generator(filename, ele, lines)
+
 
 entropy = 12.9 * ele
 print("\n")
