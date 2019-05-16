@@ -4,11 +4,13 @@ import linecache
 
 script, filename = argv
 
-def generator(filename, ele):
+
+
+def generator(filename, ele, lines):
 	psw = []
 	#lines = open(filename, 'rU').readlines()
 	for i in range(0, ele):
-		seed = random.randint(1, 7776)
+		seed = random.randint(1, lines)
 		word = linecache.getline(filename, seed).rstrip('\n')
 		psw.append(word)
 	return psw
@@ -18,10 +20,12 @@ print("\n")
 print("Hello! This is a psw generator\n")
 
 
-print("How many words? The minimum reccomended is 6.")
+print("How many elements? The minimum reccomended is 6.")
 ele = int(input("> "))
 
-psw = generator(filename, ele)
+with open(filename) as foo:
+    lines = len(foo.readlines())
+psw = generator(filename, ele, lines)
 
 entropy = 12.9 * ele
 print("\n")
@@ -40,3 +44,5 @@ print("\n")
 print("The new generated passphrase therefor is:\n")	
 print('\x1b[1;37;42m' +  ' '.join(str(y) for y in psw) + '\x1b[0m')
 print("\n")
+
+
